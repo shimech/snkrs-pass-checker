@@ -1,10 +1,13 @@
 import os
+import time
 from dotenv import load_dotenv
 from argument_parser import ArgumentParser
 from utils import Utils
 from client import Client
 from message import Message
 from slack_bot import SlackBot
+
+NUM_ITER = 10
 
 
 def main():
@@ -29,4 +32,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    for _ in range(NUM_ITER):
+        main()
