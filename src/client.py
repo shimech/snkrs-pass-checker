@@ -21,6 +21,7 @@ class Client:
             url = record["url"].values[0]
             response = requests.get(url)
             time.sleep(1)
+            print("{} {}".format(url, response))
             if response.status_code == 200:
                 print("New SNKRS PASS: {}".format(url))
                 snkrs_pass_urls.append(url)
