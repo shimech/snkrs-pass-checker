@@ -28,6 +28,8 @@ class Client:
 
                 bs = BeautifulSoup(response.text, "html.parser")
                 h1s = bs.find_all("h1")
+                if len(h1s) == 0:
+                    is_new_snkrs_pass = False
                 for h1 in h1s:
                     if h1.text == "404エラー":
                         is_new_snkrs_pass = False
