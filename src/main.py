@@ -7,7 +7,7 @@ from client import Client
 from message import Message
 from slack_bot import SlackBot
 
-NUM_ITER = 10
+NUM_ITER = 8
 
 
 def main():
