@@ -1,6 +1,7 @@
 import os
 import time
 import requests
+from bs4 import BeautifulSoup
 import pandas as pd
 import warnings
 warnings.simplefilter("ignore")
@@ -23,9 +24,20 @@ class Client:
             time.sleep(1.5)
             print("{} {}".format(url, response))
             if response.status_code == 200:
-                print("New SNKRS PASS: {}".format(url))
-                snkrs_pass_urls.append(url)
-                df["is_access"][df["id"] == i] = True
+                is_new_snkrs_pass = True
+
+                bs = BeautifulSoup(response.text, "html.parser")
+                h1s = bs.find_all("h1")
+                for h1 in h1s:
+                    if h1.text == "404エラー":
+                        is_new_snkrs_pass = False
+                        break
+
+                if is_new_snkrs_pass:
+                    print("New SNKRS PASS: {}".format(url))
+                    snkrs_pass_urls.append(url)
+                    df["is_access"][df["id"] == i] = True
+
         df.to_csv(cls.DATABASE_PATH, index=False)
 
         return snkrs_pass_urls

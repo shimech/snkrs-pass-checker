@@ -11,6 +11,8 @@ requests = "^2.25.0"
 autopep8 = "^1.5.4"
 python-dotenv = "^0.15.0"
 pandas = "^1.1.4"
+urllib3 = "^1.26.2"
+beautifulsoup4 = "^4.9.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
