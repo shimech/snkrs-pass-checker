@@ -20,7 +20,7 @@ class Client:
             record = df_search.query("id == {}".format(i))
             url = record["url"].values[0]
             response = requests.get(url)
-            time.sleep(1)
+            time.sleep(1.5)
             print("{} {}".format(url, response))
             if response.status_code == 200:
                 print("New SNKRS PASS: {}".format(url))

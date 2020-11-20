@@ -7,7 +7,7 @@ from client import Client
 from message import Message
 from slack_bot import SlackBot
 
-NUM_ITER = 8
+NUM_ITER = 4
 
 
 def main():
@@ -34,3 +34,4 @@ def main():
 if __name__ == "__main__":
     for _ in range(NUM_ITER):
         main()
+        time.sleep(5)
